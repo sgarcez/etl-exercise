@@ -39,7 +39,7 @@ SET default_with_oids = false;
 --
 
 CREATE TABLE "Emails" (
-    id uuid NOT NULL,
+    email_id uuid NOT NULL,
     "timestamp" timestamp without time zone NOT NULL
 );
 
@@ -50,7 +50,7 @@ CREATE TABLE "Emails" (
 
 CREATE TABLE "Recipients" (
     address text NOT NULL,
-    id uuid NOT NULL,
+    email_id uuid NOT NULL,
     CONSTRAINT address_length CHECK ((char_length(address) <= 255))
 );
 
@@ -74,7 +74,7 @@ CREATE TABLE "Words" (
 --
 
 ALTER TABLE ONLY "Emails"
-    ADD CONSTRAINT emails_pkey PRIMARY KEY (id);
+    ADD CONSTRAINT emails_pkey PRIMARY KEY (email_id);
 
 
 --
@@ -82,7 +82,7 @@ ALTER TABLE ONLY "Emails"
 --
 
 ALTER TABLE ONLY "Recipients"
-    ADD CONSTRAINT recipients_pkey PRIMARY KEY (id, address);
+    ADD CONSTRAINT recipients_pkey PRIMARY KEY (email_id, address);
 
 
 --

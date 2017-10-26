@@ -11,12 +11,12 @@ import psycopg2.extras
 
 
 emails_query = '''
-    insert into "Emails" (id, timestamp) values %s
+    insert into "Emails" (email_id, timestamp) values %s
     on conflict do nothing;'''
 
 
 recipients_query = '''
-    insert into "Recipients" (id, address) values %s
+    insert into "Recipients" (email_id, address) values %s
     on conflict do nothing;'''
 
 
