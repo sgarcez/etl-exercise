@@ -1,6 +1,6 @@
 # ETL Exercise
 
-prompt: [https://github.com/PlutoFlume/cr_eng_challenge_python](http://en.wikipedia.org/wiki/Markdown)
+prompt: [https://github.com/PlutoFlume/cr_eng_challenge_python](https://github.com/PlutoFlume/cr_eng_challenge_python)
 
 ## Considerations:
 
