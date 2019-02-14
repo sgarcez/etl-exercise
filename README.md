@@ -4,7 +4,7 @@ prompt: [https://github.com/PlutoFlume/cr_eng_challenge_python](https://github.c
 
 ## Considerations:
 
-- loading the file is IO bound but the input is a single json document which makes it difficult to chunk and parallelise. With line oriented json that could have been an option. It would also be possible to use a C backed json parser like `ijson` but I decided to keep it python only.
+- loading the file is IO bound and the input is a single json document which makes it difficult to chunk. With line oriented json that could have been an option. It would also be possible to use a C backed json parser like `ijson` but I decided to keep it python only.
 - the mapping step between recipients and words could have benefited from a multiprocessing based map reduce approach since it's CPU bound, but I didn't get that far.
 - the flushing to the database phase is an IO bound operation so I've parallelised it with threads which is possible since the tables don't have relationships.
 - the implementation is idempotent apart from word counts, which are incremented. email ids are hashes of the payloads and writes to the database ignore conflicts in the case of the 'Emails' and 'Recipients', or deal with them in the case of the 'Words' table.
